@@ -1,12 +1,14 @@
-// •	Pull 200 data objects from the todos endpoint of jsonplaceholder as shown here: https://jsonplaceholder.typicode.com ( https://jsonplaceholder.typicode.com/ )
-// •	Render a table to display that data
-// o	Each row should display the userId, id, title, and completion status of each item, and should additionally have a button - DONE
-// •	When any of the buttons in any of the rows are pressed, the font color of the ID number of every row with an odd ID should toggle from black to orange (or back)
-// •	In the headers of each column, add a switch that allows the table to be sorted (asc and desc) based on the value of that column
-// •	Above the table, render an input that filters the table entries based on their title
-// •	Next to the input, render another button
-// •	This button toggles the even IDs from black to green (or back)
-// •	Write a comment of a few lines explaining how you might approach testing a feature like this
+
+// Testing strategy. 
+// Create a stub for the getToDo service to avoid external services thus having a constant value for testing the api data.
+// Trigger the onChange event for the title filter with a specific value and verify if the state has captured the change.
+
+// Misc.
+// Regarding the filtering I created in the render()
+// you could create a separate ‘array’ in the state and directly update the state when the onChange gets fired.
+// That will improve the rendering when only other parts of the state gets changed.
+// Same goes for sorting but yu have to be cognisance of the fact that filtering and sorting consecutively could produce false results.
+
 
 import React, { Component } from 'react';
 import { getToDos } from '../services/todosService';
